@@ -23,12 +23,11 @@ export class AnswerHighlightDirective {
       .subscribe((value) => {
         console.log('value :>> ', value);
         if (value === 0) {
-          this.el.nativeElement.classList.add('right');
+          this.el.nativeElement.classList.add('correct');
         } else if (value < 0.2) {
           this.el.nativeElement.classList.add('close');
         } else {
-          this.el.nativeElement.classList.remove('close', 'right');
-          // this.el.nativeElement.classList.remove('right');
+          this.el.nativeElement.classList.remove('close', 'correct');
         }
       });
   }
