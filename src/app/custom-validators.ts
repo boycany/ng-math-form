@@ -3,9 +3,14 @@ import { AbstractControl } from '@angular/forms';
 export class CustomValidators {
   count = 0;
 
-  static addition(form: AbstractControl) {
-    const { a, b, answer } = form.value;
-    return a + b === parseInt(answer) ? null : { addition: true };
+  static addition(target: string, source1: string, source2: string) {
+    return (form: AbstractControl) => {
+      const sum = form.value[target];
+      const firstNum = form.value[source1];
+      const secondNum = form.value[source2];
+
+      return firstNum + secondNum === parseInt(sum) ? null : { addition: true };
+    };
   }
 
   callCount() {
